@@ -6,11 +6,17 @@ console.log('Hello world');
 //  const data = new FormData(form);
 //  console.log(data);
 //};
-function encrypt(value) {
-    console.log(value);
+function encrypt(value, offset) {
+    // String to encrpyt, number of offset
+    console.log(value, offset);
+    value = value.toLowerCase();
+    for (var x = 0, c = ""; c = value.charAt(x); x++) {
+        console.log(c);
+    }
 }
 ;
 function decrypt(value) {
     console.log(value);
 }
 ;
+encrypt("Courage", 1);

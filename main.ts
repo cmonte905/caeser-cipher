@@ -8,10 +8,19 @@ console.log('Hello world');
 //  console.log(data);
 //};
 
-function encrypt(value: string){
-  console.log(value)
+function encrypt(value: string, offset: number){
+  // String to encrpyt, number of offset
+  console.log(value, offset)
+  value = value.toLowerCase()
+
+  for (var x = 0, c = ""; c = value.charAt(x); x++){
+    console.log(c)
+  }
 };
 
 function decrypt(value: string){
   console.log(value);
 };
+
+
+encrypt("Courage", 1)
