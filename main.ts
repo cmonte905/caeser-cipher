@@ -15,6 +15,9 @@ function encrypt(value: string, offset: number){
 
   for (var x = 0, c = ""; c = value.charAt(x); x++){
     console.log(c)
+    console.log(c.charCodeAt(0))
+    var temp_char = c.charCodeAt(0) + offset;
+    console.log(String.fromCharCode(temp_char) + '\n')
   }
 };
 
