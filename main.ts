@@ -1,33 +1,49 @@
-function encrypt(value: string, offset: number){
+function encrypt(inputed_value: string, offset: number){
   // String to encrpyt, number of offset
-  console.log(value, offset)
-  value = value.toLowerCase()
-  // Empty string to add chars after encrpytion. 
+  if (offset > 26 ){
+    return;
+  }
+  inputed_value = inputed_value.toLowerCase()
   let encrypted_text: string = ""
-
-  for (var x = 0, c = ""; c = value.charAt(x); x++){
-    if (c.charCodeAt(0) == 127 || c.charCodeAt(0) == 32){
+  for (var x = 0, c = ""; c = inputed_value.charAt(x); x++){
+    let char_offested: number = c.charCodeAt(0) + offset
+    if (c.charCodeAt(0) == 32){
       encrypted_text += " "
-    }else {
-      encrypted_text += String.fromCharCode(c.charCodeAt(0) + offset);
+    }
+    else if (char_offested > 122) {
+      let offsetted_number: number = char_offested - 123;
+      encrypted_text += String.fromCharCode(offsetted_number + 97)
+    }
+    else {
+      encrypted_text += String.fromCharCode(char_offested);
     }
   }
   console.log(encrypted_text)
 };
 
-function decrypt(value: string, offset: number){
+function decrypt(inputed_value: string, offset: number){
   // String to encrpyt, number of offset
-  console.log(value, offset)
-  value = value.toLowerCase()
-  // Empty string to add chars after encrpytion. @TODO Add logic for spaces 
+  if (offset > 26 ){
+    // offset cannot be greater than 26
+    return;
+  }
+  inputed_value = inputed_value.toLowerCase()
   let encrypted_text: string = ""
-
-  for (var x = 0, c = ""; c = value.charAt(x); x++){
-    //var temp_char = c.charCodeAt(0) + offset;
-    encrypted_text += String.fromCharCode(c.charCodeAt(0) + offset);
+  for (var x = 0, c = ""; c = inputed_value.charAt(x); x++){
+    let char_offested: number = c.charCodeAt(0) - offset
+    if (c.charCodeAt(0) == 32){
+      encrypted_text += " "
+    }
+    else if (char_offested < 97) {
+      let offsetted_number: number = char_offested - 96;
+      encrypted_text += String.fromCharCode(offsetted_number + 122)
+    }
+    else {
+      encrypted_text += String.fromCharCode(char_offested);
+    }
   }
   console.log(encrypted_text)
 };
 
-
-encrypt("Courage the cowardly dog", 1)
+encrypt("Courage", 4)
+decrypt("gsyveki", 4)
