@@ -47,3 +47,7 @@ function decrypt(inputed_value: string, offset: number){
 
 encrypt("Courage", 4)
 decrypt("gsyveki", 4)
+for (let n : number = 0; n < 26; n++){
+'TRVJRI TZGYVIJ RIV HLZKV VRJP KF TIRTB'
+  decrypt("TRVJRI TZGYVIJ RIV HLZKV VRJP KF TIRTB", n)
+}
