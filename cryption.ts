@@ -42,7 +42,6 @@ export = {
     for (var x = 0, c = ""; c = inputed_value.charAt(x); x++){
       // let char_offested: number = c.charCodeAt(0) +` offset
       if (c == " ") {
-        // console.log("this is a space")
         encrypted_text += " "
       }else {
         let char_offested: number;
@@ -55,12 +54,9 @@ export = {
             char_offested += 26
           }
         }
-        
-        // console.log(char_offested)
         encrypted_text += alphabet_dict[char_offested]
       }
     }
-    console.log(encrypted_text)
     return encrypted_text
   },
   
